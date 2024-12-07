@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YP Network Apprentice Application Form</title>
+    <script>
+        // JavaScript to toggle input and messages based on learning mode
+        function toggleLearningModeDetails() {
+            const learningMode = document.getElementById("learning_mode").value;
+            const whatsappDiv = document.getElementById("whatsapp_input");
+            const inPersonMessage = document.getElementById("in_person_message");
+
+            if (learningMode === "online") {
+                whatsappDiv.style.display = "block";
+                inPersonMessage.style.display = "none";
+            } else if (learningMode === "in_person") {
+                whatsappDiv.style.display = "none";
+                inPersonMessage.style.display = "block";
+            } else {
+                whatsappDiv.style.display = "none";
+                inPersonMessage.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>YP Network Apprentice Application Form</h1>
+    <form action="/submit-application" method="post" enctype="multipart/form-data">
+        <!-- Full Name -->
+        <label for="full_name">Full Name:</label>
+        <input type="text" id="full_name" name="full_name" required><br><br>
+
+        <!-- Mother's Name -->
+        <label for="mother_name">Mother's Name:</label>
+        <input type="text" id="mother_name" name="mother_name" required><br><br>
+
+        <!-- Father's Name -->
+        <label for="father_name">Father's Name:</label>
+        <input type="text" id="father_name" name="father_name" required><br><br>
+
+        <!-- Educational Level -->
+        <label for="education">Educational Level:</label>
+        <input type="text" id="education" name="education" required><br><br>
+
+        <!-- Phone Number -->
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <!-- Email -->
+        <label for="email">Email (if available):</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <!-- Planned Starting Date -->
+        <label for="start_date">Planned Starting Date:</label>
+        <input type="date" id="start_date" name="start_date" required><br><br>
+
+        <!-- House Address -->
+        <label for="address">House Address:</label>
+        <textarea id="address" name="address" required></textarea><br><br>
+
+        <!-- Passport Photograph -->
+        <label for="passport">Upload Passport Photograph:</label>
+        <input type="file" id="passport" name="passport" accept="image/*" required><br><br>
+
+        <!-- Mother's Signature -->
+        <label for="mother_signature">Upload Mother's Signature:</label>
+        <input type="file" id="mother_signature" name="mother_signature" accept="image/*" required><br><br>
+
+        <!-- Letter of Request -->
+        <label for="letter">Upload Letter of Request:</label>
+        <input type="file" id="letter" name="letter" accept=".pdf,.doc,.docx" required><br><br>
+
+        <!-- Referee Details -->
+        <h3>Referee Information</h3>
+        <label for="referee_name">Referee's Name:</label>
+        <input type="text" id="referee_name" name="referee_name" required><br><br>
+
+        <label for="referee_phone">Referee's Phone Number:</label>
+        <input type="tel" id="referee_phone" name="referee_phone" required><br><br>
+
+        <label for="referee_address">Referee's Home Address:</label>
+        <textarea id="referee_address" name="referee_address" required></textarea><br><br>
+
+        <label for="referee_photo">Upload Referee's Passport Photograph:</label>
+        <input type="file" id="referee_photo" name="referee_photo" accept="image/*" required><br><br>
+
+        <label for="referee_age">Referee's Age:</label>
+        <input type="number" id="referee_age" name="referee_age" min="21" required><br><br>
+
+        <!-- Interest of Learning -->
+        <h3>Interest of Learning</h3>
+        <label for="interest">Choose an Option:</label>
+        <select id="interest" name="interest" required>
+            <option value="laundry_bar_soap">Laundry Bar Soap</option>
+            <option value="air_fresheners">Air Fresheners</option>
+            <option value="toilet_wash">Toilet Wash</option>
+            <option value="liquid_soap">Liquid Soap</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <!-- Learning Mode -->
+        <h3>Learning Mode</h3>
+        <label for="learning_mode">Mode of Learning:</label>
+        <select id="learning_mode" name="learning_mode" onchange="toggleLearningModeDetails()" required>
+            <option value="">Select Mode</option>
+            <option value="in_person">In Person</option>
+            <option value="online">Online</option>
+        </select><br><br>
+
+        <!-- WhatsApp Number (for online learning only) -->
+        <div id="whatsapp_input" style="display: none;">
+            <label for="whatsapp">Enter Your WhatsApp Number:</label>
+            <input type="tel" id="whatsapp" name="whatsapp"><br><br>
+        </div>
+
+        <!-- Message for In-Person Learning -->
+        <div id="in_person_message" style="display: none;">
+            <p>The address for the training will be sent to you via WhatsApp or email after submission.</p>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <h3>Terms and Conditions</h3>
+        <textarea readonly style="width: 100%; height: 150px;">
+By submitting this application, you agree to follow all policies and procedures of YP Network Nigeria Enterprises. All information provided must be truthful, and any falsehood may lead to rejection.
+        </textarea><br>
+        <label>
+            <input type="checkbox" name="terms" required>
+            I agree to the terms and conditions.
+        </label><br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Application</button>
+    </form>
+</body>
+</html>
